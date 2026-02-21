@@ -1,0 +1,16 @@
+{
+  "name": "@deepwhy/cli",
+  "version": "0.1.0",
+  "type": "module",
+  "bin": {
+    "deepwhy": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "echo 'no tests'"
+  },
+  "dependencies": {
+    "deepwhy": "workspace:*",
+    "commander": "^12.0.0"
+  }
+}
