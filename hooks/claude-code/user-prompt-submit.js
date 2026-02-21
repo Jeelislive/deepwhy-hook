@@ -3,9 +3,24 @@
 // Injects DEEPWHY PROTOCOL into Claude's context when a bug/error prompt is detected.
 
 const BUG_KEYWORDS = [
-  'error', 'bug', 'fix', 'broken', 'crash', 'exception',
-  'fail', 'issue', 'problem', 'undefined', 'null', 'TypeError',
-  'why is', 'why does', 'not working'
+  // JS/runtime errors
+  'TypeError', 'ReferenceError', 'SyntaxError', 'RangeError',
+  'undefined is not', 'cannot read', 'cannot set',
+  'unhandled rejection', 'uncaught exception',
+  'stack trace', 'stack overflow',
+  // System/network errors
+  'ECONNREFUSED', 'ENOENT', 'ETIMEDOUT', 'ECONNRESET',
+  'segfault', 'out of memory',
+  // Structural symptoms
+  'not working', 'stopped working', 'broken',
+  'why is', 'why does', 'why are', "why won't",
+  'crash', 'exception', 'keeps failing',
+  'infinite loop', 'memory leak', 'deadlock',
+  // User-facing symptoms (proven by test failures)
+  'randomly', 'intermittently', 'sometimes fails',
+  'hangs', 'freezes', 'duplicate',
+  'wrong user', 'wrong data', 'shows wrong',
+  'logged out', 'missing data', 'flickers'
 ]
 
 let input = ''
